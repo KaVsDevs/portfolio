@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karen Vasconcelos · CTO e engenheira full stack</title>
+<meta name="description" content="Portfólio de Karen Vasconcelos: sistemas com IA em produção para licitações, compras e operação. Arquitetura, código e liderança de time.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Karen Vasconcelos · CTO e engenheira full stack">
+<meta property="og:description" content="Sistemas com IA em produção para licitações, compras e operação. Arquitetura, código e liderança de time.">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#081428">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='10' fill='%23081428'/%3E%3Ctext x='18' y='23.5' text-anchor='middle' font-family='Arial,sans-serif' font-size='14' font-weight='700' fill='%23fff'%3EKV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F6FA; --surface:#FFFFFF; --soft:#F7F9FC; --line:#E6EBF2; --line-2:#D6DDE8;
+  --ink:#081428; --ink-2:#233146; --muted:#475569; --muted-2:#5E6D83;
+  --accent:#5B4BDB; --accent-dark:#4338CA; --accent-soft:#EEF0FE; --accent-line:#CFD3FA;
+  --grad:linear-gradient(90deg,#3B82F6,#8B5CF6); --hud:#5CE1FF; --night:#0A1024; --night-muted:#AAB4D4;
+  --ok:#0E9467; --ok-soft:#E8F7F0; --ok-ink:#0B6B47;
+  --sans:'Instrument Sans',ui-sans-serif,system-ui,sans-serif;
+  --display:Quicksand,ui-sans-serif,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}a:hover{color:var(--accent-dark)}
+a,button,summary{transition:background-color .16s,border-color .16s,color .16s}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+h1,h2,h3,p,ul,dl,dd,figure{margin:0}
+ul{padding:0;list-style:none}
+svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.layout{display:flex;min-height:100vh}
+
+/* Sidebar */
+.side{flex:none;width:264px;position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--surface);border-right:1px solid var(--line);padding:24px 16px;display:flex;flex-direction:column;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;padding:0 8px;text-decoration:none}
+.brand-mark{width:36px;height:36px;border-radius:10px;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:15px;font-weight:700;flex:none}
+.brand-name{font-family:var(--display);font-size:19px;font-weight:700;color:var(--ink);display:block}
+.brand-name em{font-style:normal;color:var(--accent)}
+.brand-sub{font-size:12px;color:var(--muted)}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav a{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 12px;border-radius:10px;font-size:15px;text-decoration:none;color:var(--ink-2)}
+.nav a:hover{background:var(--accent-soft)}
+.nav a[aria-current="true"]{background:var(--accent-soft);color:var(--ink);font-weight:600}
+.nav-label{padding:0 12px 8px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2)}
+.nav.small a{font-size:14px}
+.sw{width:22px;height:22px;border-radius:6px;flex:none}
+.rule{height:1px;background:var(--line)}
+.me{margin-top:auto;padding:14px;border-radius:14px;border:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.me-av{width:40px;height:40px;border-radius:999px;background:var(--accent-soft);color:var(--accent-dark);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex:none}
+.me b{display:block;font-size:14px;font-weight:600}
+.me span span{font-size:12px;color:var(--muted)}
+
+/* Main */
+main{flex:1;min-width:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 64px;display:flex;flex-direction:column;gap:56px}
+.topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;min-height:64px;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
+.topbar b{font-weight:400;color:var(--ink)}
+section{display:flex;flex-direction:column;gap:20px}
+.hero{gap:24px;margin-top:-24px;position:relative;overflow:hidden;padding:clamp(28px,4vw,48px);border-radius:20px;background-color:var(--night);background-image:radial-gradient(rgba(148,163,255,.13) 1px,transparent 1px);background-size:24px 24px;color:#fff}
+.hero>*{position:relative}
+.hero .rings{position:absolute;right:-110px;top:-110px;width:440px;height:440px;color:#7C8CFF;opacity:.45;pointer-events:none}
+.hero::before,.hero::after{content:"";position:absolute;width:22px;height:22px;border:2px solid var(--hud);opacity:.8}
+.hero::before{left:12px;top:12px;border-right:0;border-bottom:0}
+.hero::after{right:12px;bottom:12px;border-left:0;border-top:0}
+.hero h1{color:#fff}
+.hero .role{color:var(--night-muted)}
+.hero .dot{background:var(--hud)}
+.hero .lead{color:#D5DBF0}
+.hero .btn{background:transparent;border-color:rgba(255,255,255,.3);color:#fff}
+.hero .btn:hover{border-color:#fff;color:#fff}
+.hero .callout{background:rgba(255,255,255,.06);border-color:rgba(148,163,255,.3)}
+.hero .callout-ic{border-color:var(--hud);color:var(--hud)}
+.hero .callout-tx b{color:#fff}
+.hero .callout-tx span{color:var(--night-muted)}
+.hero .callout-go{color:#C4B5FD}
+.hero .card{background:rgba(255,255,255,.05);border-color:rgba(148,163,255,.22)}
+.hero .stat span{color:var(--night-muted)}
+.hero .stat b{color:#fff}
+.hero-head{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:20px}
+h1{font-size:clamp(40px,5.5vw,60px);line-height:1.05;font-weight:600;letter-spacing:-.02em}
+.role{margin-top:8px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:16px;color:var(--muted)}
+.dot{width:4px;height:4px;border-radius:999px;background:var(--muted-2)}
+.lead{max-width:800px;font-size:19px;line-height:1.6;color:var(--ink-2)}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 18px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);font-size:15px;font-weight:500;text-decoration:none}
+.btn:hover{border-color:var(--muted-2);color:var(--ink)}
+.btn.primary,.hero .btn.primary{padding:0 22px;border:0;background:var(--grad);color:#fff;font-size:16px;font-weight:600;transition:filter .16s}
+.btn.primary:hover{filter:brightness(1.1);color:#fff}
+
+.callout{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:16px 20px;border-radius:14px;background:#EAF7F8;border:1px solid #BFE6EA;text-decoration:none}
+.callout-ic{width:40px;height:40px;border-radius:999px;border:1.5px solid #2BA8B5;display:flex;align-items:center;justify-content:center;color:#0b7285;flex:none}
+.callout-tx{flex:1 1 260px;display:flex;flex-direction:column;gap:2px}
+.callout-tx b{font-size:16px;font-weight:600;color:var(--ink)}
+.callout-tx span{font-size:14px;color:var(--muted)}
+.callout-go{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:var(--accent)}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.stat{padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.stat span{font-size:13px;color:var(--muted)}
+.stat b{font-size:30px;line-height:1.1;font-weight:600}
+
+/* Casos */
+.case{padding-top:32px;border-top:1px solid var(--line)}
+.case-head{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.case-mark{width:40px;height:40px;border-radius:10px;flex:none}
+h2{font-size:28px;line-height:1.2;font-weight:600;letter-spacing:-.01em}
+.case h2{font-size:34px;line-height:1.15;letter-spacing:-.015em}
+.sub{margin-top:6px;font-size:15px;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);font-size:12px;font-weight:500;color:var(--ink-2);white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok-ink)}
+.pill.ok i,.pill.personal i{width:6px;height:6px;border-radius:999px;background:var(--ok)}
+.pill.personal{background:#F4EEFB;color:#6B3FA0}.pill.personal i{background:#a25ddc}
+.case-lead{max-width:820px;font-size:18px;line-height:1.6;color:var(--ink-2)}
+.papel{display:flex;flex-wrap:wrap;gap:6px 10px;padding:12px 16px;border-radius:12px;background:var(--accent-soft);border:1px solid var(--accent-line);font-size:15px;line-height:1.5}
+.papel b{font-weight:600}
+.cols{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+.cols-main{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.cols-side{flex:1 1 280px;min-width:0}
+
+.diagram{padding:28px;border-radius:14px;border:1px solid var(--line);background-color:var(--soft);background-image:radial-gradient(#C5CFDD 1.15px,transparent 1.15px);background-size:24px 24px;display:flex;flex-direction:column;gap:18px}
+.lane{display:flex;flex-direction:column;gap:8px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2)}
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px 0}
+.node{flex:1 1 190px;min-width:0;max-width:280px;min-height:96px;padding:14px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--line-2);box-shadow:0 1px 2px rgba(8,20,40,.06);display:flex;flex-direction:column;gap:4px}
+.node .k{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.node .k i{width:8px;height:8px;border-radius:2px;background:var(--c,#0073ea)}
+.node b{font-size:15px;font-weight:600}
+.node span.d{font-size:13px;line-height:1.4;color:var(--muted)}
+.link{flex:0 0 24px;align-self:center;height:2px;border-radius:2px;background:#BFC9D6}
+
+.bullets{padding:4px 20px 8px}
+.bullets li{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.55;color:var(--ink-2)}
+.bullets li:first-child{border-top:0}
+.bullets li::before{content:"";flex:none;width:6px;height:6px;margin-top:9px;border-radius:2px;background:var(--c,#0073ea)}
+
+.details{padding:20px;display:flex;flex-direction:column;gap:8px}
+.details dl>div{display:grid;grid-template-columns:100px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.details dt{font-size:13px;color:var(--muted)}
+.details dd{font-size:14px;line-height:1.5}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px}
+.shots figure{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+.shots figure.wide{grid-column:1/-1}
+.shots img{display:block;width:100%;height:auto}
+.shots img.crop{height:280px;object-fit:cover}
+.shots img.top{object-position:top}
+.shots figcaption{padding:10px 14px;font-size:13px;color:var(--muted)}
+
+/* Tabelas */
+.table{overflow:hidden}
+.year{display:flex;align-items:center;gap:10px;padding:14px 20px;background:var(--soft);border-top:1px solid var(--line)}
+.year:first-child{border-top:0}
+.year i{width:8px;height:8px;border-radius:999px;background:var(--accent)}
+.year b{font-size:16px;font-weight:600}
+.row-t{display:grid;grid-template-columns:80px minmax(0,1fr);gap:16px;padding:14px 20px;border-top:1px solid var(--line)}
+.row-t>span:first-child{font-size:14px;color:var(--muted)}
+.row-t b{display:block;font-size:15px;font-weight:600}
+.row-t small{display:block;margin-top:2px;font-size:14px;color:var(--muted)}
+
+details.group{border-top:1px solid var(--line)}
+details.group:first-child{border-top:0}
+details.group summary{display:flex;align-items:center;gap:10px;min-height:52px;padding:0 20px;cursor:pointer;list-style:none}
+details.group summary::-webkit-details-marker{display:none}
+details.group summary:hover{background:var(--soft)}
+details.group summary i{width:8px;height:8px;border-radius:999px;background:var(--c)}
+details.group summary b{font-size:17px;font-weight:500}
+details.group summary span{font-size:14px;color:var(--muted-2)}
+details.group summary svg{margin-left:auto;color:var(--muted);transition:transform .16s}
+details.group[open] summary svg{transform:rotate(180deg)}
+.proj{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;padding:14px 20px;border-top:1px solid var(--line);border-left:3px solid var(--c)}
+.proj b{flex:0 0 220px;font-size:15px;font-weight:600}
+.proj .d{flex:1 1 320px;min-width:0;font-size:14px;line-height:1.5;color:var(--ink-2)}
+.proj .t{flex:0 1 260px;min-width:0;font-size:13px;line-height:1.5;color:var(--muted)}
+
+.kv{display:flex;flex-wrap:wrap;gap:6px 16px;padding:16px 20px;border-top:1px solid var(--line)}
+.kv:first-child{border-top:0}
+.kv b{flex:0 0 180px;font-size:14px;font-weight:600}
+.kv span{flex:1 1 320px;min-width:0;font-size:15px;line-height:1.55;color:var(--ink-2)}
+
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:12px}
+.tile{padding:20px;display:flex;flex-direction:column;gap:8px}
+.tile b{font-size:16px;font-weight:600}
+.tile span{font-size:14px;line-height:1.55;color:var(--muted)}
+
+.contact{padding:24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.contact dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 20px;font-size:15px}
+.contact dt{color:var(--muted)}
+.contact dd{overflow-wrap:anywhere}
+
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+
+/* Mobile: a sidebar vira barra fixa no topo com o menu rolando de lado */
+@media (max-width:900px){
+  .layout{display:block}
+  .side{position:sticky;top:0;z-index:10;width:auto;height:auto;overflow:visible;flex-direction:row;align-items:center;gap:8px;padding:8px 12px;border-right:0;border-bottom:1px solid var(--line)}
+  .brand{padding:0}.brand>span:last-child,.rule,.nav.small,.me{display:none}
+  .nav{flex-direction:row;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{white-space:nowrap;font-size:14px;padding:0 12px;gap:0}
+  .nav a svg{display:none}
+  html{scroll-padding-top:76px}
+  .topbar{min-height:48px}
+  .hero{margin-top:-28px;border-radius:16px}
+  .hero .rings{width:300px;height:300px;right:-120px;top:-120px}
+  .wrap{gap:44px}
+  .diagram{padding:16px}
+  .link{display:none}
+  .flow{gap:10px}
+  .node{max-width:none;min-height:0}
+  .proj b,.kv b{flex-basis:100%}
+  .case h2{font-size:28px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media print{.side{display:none}.wrap{gap:32px}details.group>*{display:block}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.3-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c2 .7 3.2 2.4 3.6 5.2"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.3 1.1 6.1L12 16.9 6.600 19.8l1.1-6.1L3.200 9.400l6.100-.8z"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M5 5H3v1a3 3 0 0 0 3 3M19 5h2v1a3 3 0 0 1-3 3M12 13v4M8 21h8M9.500 17h5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+</svg>
+
+<div class="layout">
+
+<aside class="side">
+  <a class="brand" href="#topo">
+    <span class="brand-mark" aria-hidden="true">KV</span>
+    <span><span class="brand-name">Karen <em>Vasconcelos</em></span><span class="brand-sub">Portfólio</span></span>
+  </a>
+  <nav class="nav" id="menu" aria-label="Seções">
+    <a href="#topo" aria-current="true"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg>Visão geral</a>
+    <a href="#destaques"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg>Destaques</a>
+    <a href="#trajetoria"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Trajetória</a>
+    <a href="#projetos"><svg class="i" aria-hidden="true"><use href="#i-grid"/></svg>Projetos</a>
+    <a href="#stack"><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg>Stack</a>
+    <a href="#lideranca"><svg class="i" aria-hidden="true"><use href="#i-people"/></svg>Liderança</a>
+    <a href="#contato"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>Contato</a>
+  </nav>
+  <div class="rule"></div>
+  <nav class="nav small" aria-label="Projetos em destaque">
+    <span class="nav-label">Em destaque</span>
+    <a href="#lumo"><span class="sw" style="background:#0073ea" aria-hidden="true"></span>Lumo</a>
+    <a href="#cotacao"><span class="sw" style="background:#0b7285" aria-hidden="true"></span>Cotação de Materiais</a>
+    <a href="#friday"><span class="sw" style="background:#a25ddc" aria-hidden="true"></span>F.R.I.D.A.Y.</a>
+  </nav>
+  <div class="me">
+    <span class="me-av" aria-hidden="true">KV</span>
+    <span><b>Karen Vasconcelos</b><span>Manaus, AM · remoto ou presencial</span></span>
+  </div>
+</aside>
+
+<main id="topo">
+<div class="wrap">
+
+<div class="topbar"><span>Portfólio / <b>CTO e engenheira full stack</b></span><span>Manaus, AM</span></div>
+
+<section class="hero" aria-labelledby="titulo">
+  <svg class="rings" viewBox="0 0 440 440" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="220" cy="220" r="218" stroke-width="1"/><circle cx="220" cy="220" r="150" stroke-width="1.5"/><circle cx="220" cy="220" r="96" stroke-width="2"/><circle cx="220" cy="220" r="186" stroke-width="1" stroke-dasharray="2 10"/></svg>
+  <div class="hero-head">
+    <div>
+      <h1 id="titulo">Karen Vasconcelos</h1>
+      <p class="role"><span>CTO e engenheira full stack</span><span class="dot" aria-hidden="true"></span><span>Python · TypeScript · React · IA aplicada</span></p>
+    </div>
+    <div class="actions">
+      <a class="btn primary" href="mailto:karenvasconcelos27@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>Entrar em contato</a>
+      <a class="btn" href="https://wa.me/5592981254943" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>WhatsApp</a>
+    </div>
+  </div>
+  <p class="lead">Construo sistemas com IA que entram em produção e resolvem problemas reais de negócio: licitações, compras, custos de mão de obra e operação. Vim do financeiro e da contabilidade, então entendo a regra antes de escrever o código. Arquiteto, codifico e lidero o time, do primeiro desenho ao deploy.</p>
+  <a class="callout" href="#cotacao">
+    <span class="callout-ic" aria-hidden="true"><svg class="i"><use href="#i-trophy"/></svg></span>
+    <span class="callout-tx"><b>2 licitações vencidas com um sistema que eu desenvolvi</b><span>A pesquisa de preços foi feita de ponta a ponta na Cotação de Materiais.</span></span>
+    <span class="callout-go">Ver caso <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+  </a>
+  <div class="stats">
+    <div class="card stat"><span>endpoints em produção</span><b>922</b></div>
+    <div class="card stat"><span>testes automatizados</span><b>4.500+</b></div>
+    <div class="card stat"><span>serviços independentes na plataforma</span><b>9</b></div>
+    <div class="card stat"><span>projetos entregues</span><b>25+</b></div>
+  </div>
+</section>
+
+<div id="destaques" style="display:flex;flex-direction:column;gap:56px">
+
+<section class="case" id="lumo" aria-labelledby="lumo-t">
+  <div class="case-head">
+    <span class="case-mark" style="background:#0073ea" aria-hidden="true"></span>
+    <h2 id="lumo-t">Lumo</h2>
+    <span class="pill ok"><i aria-hidden="true"></i>Em produção</span>
+  </div>
+  <p class="case-lead">Plataforma de gestão SaaS multiempresa criada para substituir o Monday.com na operação: quadros e automações, licitações do radar ao pregão, viabilidade de propostas, DP, certidões, financeiro e marketing. Cada módulo é um serviço independente, contratado por empresa.</p>
+  <div class="papel"><b>Meu papel</b><span>Arquitetei e liderei o desenvolvimento, respondendo por cerca de 80% da implementação. Trabalho orquestrando agentes de IA de código, com revisão humana, suíte de testes e portões de qualidade antes de cada deploy.</span></div>
+  <div class="stats">
+    <div class="card stat"><span>endpoints</span><b>922</b></div>
+    <div class="card stat"><span>tabelas</span><b>144</b></div>
+    <div class="card stat"><span>testes de backend</span><b>3.039</b></div>
+    <div class="card stat"><span>testes de frontend</span><b>1.499</b></div>
+  </div>
+  <!-- PRINT: colocar aqui 1 a 3 telas do Lumo (quadro, licitações, hub de módulos) com dados fictícios, no mesmo bloco .shots usado na F.R.I.D.A.Y. -->
+  <div class="cols">
+    <div class="cols-main">
+      <div class="diagram" role="img" aria-label="Arquitetura do Lumo: entrada por navegador e API pública, borda com balanceamento de carga, serviços por módulo e dados em PostgreSQL, Redis e Celery">
+        <div class="lane"><span class="eyebrow">Entrada</span><div class="flow">
+          <div class="node"><span class="k"><i></i>Cliente</span><b>Navegador e API pública</b><span class="d">React + TypeScript · portal do desenvolvedor</span></div>
+          <span class="link" aria-hidden="true"></span>
+          <div class="node" style="--c:#0b7285"><span class="k"><i></i>Borda</span><b>Balanceador + 2 servidores</b><span class="d">alta disponibilidade · proxy reverso</span></div>
+        </div></div>
+        <div class="lane"><span class="eyebrow">Serviços por módulo</span><div class="flow">
+          <div class="node"><span class="k"><i></i>core</span><b>Núcleo</b><span class="d">auth · empresas · marketplace</span></div>
+          <span class="link" aria-hidden="true"></span>
+          <div class="node" style="--c:#0f766e"><span class="k"><i></i>gestão</span><b>Quadros</b><span class="d">automações · tempo real</span></div>
+          <span class="link" aria-hidden="true"></span>
+          <div class="node" style="--c:#e8710a"><span class="k"><i></i>comercial</span><b>Licitações</b><span class="d">radar · viabilidade · pregão</span></div>
+          <span class="link" aria-hidden="true"></span>
+          <div class="node" style="--c:#a25ddc"><span class="k"><i></i>dp · cnd</span><b>Operação</b><span class="d">pessoas · certidões</span></div>
+        </div></div>
+        <div class="lane"><span class="eyebrow">Dados</span><div class="flow">
+          <div class="node" style="--c:#0f766e"><span class="k"><i></i>Banco</span><b>PostgreSQL 16</b><span class="d">144 tabelas · 203 migrações</span></div>
+          <span class="link" aria-hidden="true"></span>
+          <div class="node" style="--c:#7C3AED"><span class="k"><i></i>Cache e filas</span><b>Redis 7</b><span class="d">cache · pub/sub · filas</span></div>
+          <span class="link" aria-hidden="true"></span>
+          <div class="node" style="--c:#00b5d1"><span class="k"><i></i>Assíncrono</span><b>Celery</b><span class="d">worker + beat · 56 tarefas</span></div>
+        </div></div>
+      </div>
+      <div class="card"><ul class="bullets">
+        <li>Substitui uma ferramenta paga por licença, com os dados e as regras de negócio dentro de casa</li>
+        <li>Motor de automações com gatilhos, ações e operadores tipados; toda execução deixa registro</li>
+        <li>Isolamento por empresa com teste que varre todas as rotas atrás de vazamento de dados</li>
+        <li>Cada módulo é um serviço no próprio container; import entre serviços é barrado por teste</li>
+        <li>Licitações: análise de edital por IA, estudo de viabilidade com motor de cálculo a partir das convenções coletivas e copiloto de lances</li>
+        <li>Teste de carga, SLO por jornada, revisão de LGPD e deploy documentado com rollback</li>
+      </ul></div>
+    </div>
+    <aside class="cols-side" aria-label="Detalhes do Lumo"><div class="card details">
+      <span class="eyebrow">Detalhes</span>
+      <dl>
+        <div><dt>Status</dt><dd>Em produção desde jun/2026</dd></div>
+        <div><dt>Infra</dt><dd>2 servidores atrás de balanceador de carga</dd></div>
+        <div><dt>Código</dt><dd>~400 mil linhas (Python e TypeScript)</dd></div>
+        <div><dt>Stack</dt><dd><div class="tags"><span class="pill">Python 3.12</span><span class="pill">FastAPI</span><span class="pill">SQLAlchemy 2</span><span class="pill">PostgreSQL</span><span class="pill">Redis</span><span class="pill">Celery</span><span class="pill">WebSocket</span><span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">TanStack</span><span class="pill">Tailwind</span><span class="pill">Docker</span><span class="pill">nginx</span></div></dd></div>
+      </dl>
+    </div></aside>
+  </div>
+</section>
+
+<section class="case" id="cotacao" aria-labelledby="cotacao-t">
+  <div class="case-head">
+    <span class="case-mark" style="background:#0b7285" aria-hidden="true"></span>
+    <h2 id="cotacao-t">Cotação de Materiais</h2>
+    <span class="pill ok"><i aria-hidden="true"></i>Em produção</span>
+  </div>
+  <p class="case-lead">Automatiza a pesquisa de preços de licitações de ponta a ponta: do edital à cesta de preços, com fornecedores respondendo direto pelo WhatsApp e a IA interpretando cada resposta.</p>
+  <div class="callout">
+    <span class="callout-ic" aria-hidden="true"><svg class="i"><use href="#i-trophy"/></svg></span>
+    <span class="callout-tx"><b>2 licitações vencidas</b><span>com a pesquisa de preços feita dentro do sistema</span></span>
+  </div>
+  <!-- PRINT: colocar aqui 1 ou 2 telas da Cotação (rodada e cesta de preços) com dados fictícios, sem nome de fornecedor nem de órgão. -->
+  <div class="cols">
+    <div class="cols-main">
+      <div class="diagram" role="img" aria-label="Fluxo da cotação: edital, extração por IA, revisão humana, disparo por WhatsApp, coleta por IA e cesta de preços">
+        <div class="flow">
+          <div class="node" style="--c:#7C3AED"><span class="k"><i></i>Gatilho</span><b>Edital</b><span class="d">PDF, planilha ou escaneado</span></div>
+          <span class="link" aria-hidden="true"></span>
+          <div class="node" style="--c:#7C3AED"><span class="k"><i></i>IA</span><b>Extração</b><span class="d">itens com citação da página</span></div>
+          <span class="link" aria-hidden="true"></span>
+          <div class="node" style="--c:#c08400"><span class="k"><i></i>Condição</span><b>Revisão humana</b><span class="d">checkpoint obrigatório</span></div>
+          <span class="link" aria-hidden="true"></span>
+          <div class="node" style="--c:#0b7285"><span class="k"><i></i>Ação</span><b>Disparo</b><span class="d">WhatsApp + planilha protegida</span></div>
+          <span class="link" aria-hidden="true"></span>
+          <div class="node" style="--c:#7C3AED"><span class="k"><i></i>IA</span><b>Coleta</b><span class="d">texto, foto, PDF e áudio</span></div>
+          <span class="link" aria-hidden="true"></span>
+          <div class="node" style="--c:#0b7285"><span class="k"><i></i>Resultado</span><b>Cesta de preços</b><span class="d">mediana · outliers · IN 65</span></div>
+        </div>
+      </div>
+      <div class="card"><ul class="bullets" style="--c:#0b7285">
+        <li>Regras da Lei 14.133 e da IN 65/2021 no código: 3 cotações mínimas, mediana, até 180 dias, descarte só com justificativa</li>
+        <li>Webhook resiliente: deduplicação, retomada após reinício e desambiguação de qual rodada o fornecedor respondeu</li>
+        <li>Multiempresa, com WhatsApp próprio por empresa e por pessoa</li>
+        <li>Módulo de compras: pedido em PDF com alçada, conferência de nota fiscal por IA e exportação para o ERP</li>
+        <li>Preço de referência automático via dados abertos do Compras.gov.br</li>
+      </ul></div>
+    </div>
+    <aside class="cols-side" aria-label="Detalhes da Cotação de Materiais"><div class="card details">
+      <span class="eyebrow">Detalhes</span>
+      <dl>
+        <div><dt>Status</dt><dd>Em produção</dd></div>
+        <div><dt>Escala</dt><dd>99 endpoints · 19 tabelas · 104 testes</dd></div>
+        <div><dt>Código</dt><dd>~20 mil linhas</dd></div>
+        <div><dt>Stack</dt><dd><div class="tags"><span class="pill">Python</span><span class="pill">FastAPI</span><span class="pill">SQLModel</span><span class="pill">React</span><span class="pill">Claude API</span><span class="pill">Evolution API</span><span class="pill">n8n</span><span class="pill">Whisper</span><span class="pill">Docker</span></div></dd></div>
+      </dl>
+    </div></aside>
+  </div>
+</section>
+
+<section class="case" id="friday" aria-labelledby="friday-t">
+  <div class="case-head">
+    <span class="case-mark" style="background:#a25ddc" aria-hidden="true"></span>
+    <h2 id="friday-t">F.R.I.D.A.Y.</h2>
+    <span class="pill personal"><i aria-hidden="true"></i>Projeto pessoal</span>
+  </div>
+  <p class="case-lead">Assistente pessoal inspirada no Jarvis que ouve, vê, lembra e age no computador, com o modelo de linguagem rodando localmente, sem depender da nuvem.</p>
+  <div class="cols">
+    <div class="cols-main">
+      <div class="shots">
+        <figure class="wide"><img src="./assets/friday-nexus.jpg" width="1440" height="900" loading="lazy" alt="Painel NEXUS da F.R.I.D.A.Y. com rede neural 3D da memória, feed de visão computacional e log de comandos"><figcaption>NEXUS v3: memória em 3D, visão computacional e central de comandos</figcaption></figure>
+        <figure><img class="crop top" src="./assets/friday-hud.jpg" width="998" height="873" loading="lazy" alt="HUD desktop da F.R.I.D.A.Y. em execução, ouvindo comandos de voz"><figcaption>HUD desktop em execução, com voz ativa</figcaption></figure>
+        <figure><img class="crop" src="./assets/friday-memoria.jpg" width="760" height="790" loading="lazy" alt="Visualização 3D da memória da F.R.I.D.A.Y. com nós e partículas"><figcaption>Grafo 3D da memória em Three.js</figcaption></figure>
+      </div>
+      <div class="card"><ul class="bullets" style="--c:#a25ddc">
+        <li>Conversa por voz com Llama 3.1 local, transcrição offline (Whisper) e voz neural em português</li>
+        <li>Memória de longo prazo com RAG: conversas, fatos, preferências e tarefas por busca semântica</li>
+        <li>Controle por gestos (pinça, punho e apontar) para mover janelas entre monitores</li>
+        <li>Reconhece o app ativo e analisa a tela para responder com contexto</li>
+        <li>Análise de sentimento com histórico, protocolos de rotina e integrações com Monday.com, Spotify e Obsidian</li>
+      </ul></div>
+    </div>
+    <aside class="cols-side" aria-label="Detalhes da F.R.I.D.A.Y."><div class="card details">
+      <span class="eyebrow">Detalhes</span>
+      <dl>
+        <div><dt>Tipo</dt><dd>Projeto pessoal</dd></div>
+        <div><dt>Execução</dt><dd>100% local e offline</dd></div>
+        <div><dt>Código</dt><dd>~10 mil linhas de Python</dd></div>
+        <div><dt>Stack</dt><dd><div class="tags"><span class="pill">Python</span><span class="pill">Llama 3.1</span><span class="pill">Ollama</span><span class="pill">Whisper</span><span class="pill">ChromaDB</span><span class="pill">MediaPipe</span><span class="pill">OpenCV</span><span class="pill">Three.js</span></div></dd></div>
+      </dl>
+    </div></aside>
+  </div>
+</section>
+
+</div>
+
+<section id="trajetoria" aria-labelledby="traj-t">
+  <div><h2 id="traj-t">Trajetória</h2><p class="sub">Do financeiro à liderança técnica</p></div>
+  <div class="card table">
+    <div class="year"><i aria-hidden="true"></i><b>2026</b></div>
+    <div class="row-t"><span>set</span><span><b>Alta disponibilidade do Lumo</b><small>Produção em 2 servidores atrás de balanceador de carga</small></span></div>
+    <div class="row-t"><span>ago</span><span><b>Lumo multiempresa</b><small>Isolamento por empresa, módulos por empresa e marketplace</small></span></div>
+    <div class="row-t"><span>jul</span><span><b>Cotação de Materiais</b><small>Do edital à cesta de preços pelo WhatsApp; depois, 2 licitações vencidas</small></span></div>
+    <div class="row-t"><span>jun</span><span><b>Lumo em produção</b><small>Plataforma própria começa a substituir o Monday.com</small></span></div>
+    <div class="year"><i aria-hidden="true"></i><b>2025</b></div>
+    <div class="row-t"><span>dez</span><span><b>F.R.I.D.A.Y. v4</b><small>Assistente com voz, visão computacional e memória rodando local</small></span></div>
+    <div class="row-t"><span>2025</span><span><b>Início como CTO</b><small>Arquitetura, squads e estratégia de automação e IA</small></span></div>
+    <div class="year"><i aria-hidden="true"></i><b>2024</b></div>
+    <div class="row-t"><span>2024</span><span><b>Transição para tecnologia</b><small>Depois de atuar como assistente financeira, início na área de tecnologia</small></span></div>
+    <div class="year"><i aria-hidden="true"></i><b>Formação</b></div>
+    <div class="row-t"><span>atual</span><span><b>Engenharia de Software</b><small>Descomplica · cursando</small></span></div>
+    <div class="row-t"><span>concluído</span><span><b>Ciências Contábeis</b><small>Bacharelado</small></span></div>
+  </div>
+</section>
+
+<section id="projetos" aria-labelledby="proj-t">
+  <div><h2 id="proj-t">Projetos</h2><p class="sub">Agrupados por tema; clique no grupo para recolher ou expandir</p></div>
+  <div class="card table">
+    <details class="group" open style="--c:#e8710a">
+      <summary><i aria-hidden="true"></i><b>Licitações e viabilidade</b><span>3</span><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+      <div class="proj"><b>LicitaSys</b><span class="d">RAG que identifica todos os documentos obrigatórios de um edital, com o item exato de referência.</span><span class="t">FastAPI · MongoDB · React · Claude</span></div>
+      <div class="proj"><b>LicitaAI</b><span class="d">Análise de Termos de Referência: postos de trabalho, projeções financeiras e riscos.</span><span class="t">Django · React · Claude API</span></div>
+      <div class="proj"><b>Estudo de viabilidade</b><span class="d">Viabilidade de licitações de mão de obra com DRE, break-even por bisseção e Lucro Real.</span><span class="t">Python · openpyxl · FastAPI · React</span></div>
+    </details>
+    <details class="group" open style="--c:#0073ea">
+      <summary><i aria-hidden="true"></i><b>Assistentes e agentes de IA</b><span>6</span><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+      <div class="proj"><b>Control One</b><span class="d">SaaS multiempresa: catálogo de blueprints de automação, agente de implantação e IA com cota isolada por empresa.</span><span class="t">FastAPI · PostgreSQL · Celery · React + TS</span></div>
+      <div class="proj"><b>Athena</b><span class="d">Assistente de voz de uma base de conhecimento corporativa: consulta as notas e executa ações em automações e arquivos.</span><span class="t">FastAPI · Claude tool use · edge-tts · React</span></div>
+      <div class="proj"><b>Têmis</b><span class="d">Assistente de voz para a área jurídica sobre um quadro de gestão, com resposta falada em cerca de 2 s.</span><span class="t">FastAPI · Claude · SQLite · Web Speech API</span></div>
+      <div class="proj"><b>FleetView</b><span class="d">Painel da frota de agentes de código: sessões ao vivo, conversa e continuidade pelo PC ou celular.</span><span class="t">FastAPI · WebSocket · React · PWA</span></div>
+      <div class="proj"><b>Maestri</b><span class="d">Canvas infinito para orquestrar agentes de IA e scripts, com terminais ao vivo e fluxos encadeados de RPA.</span><span class="t">FastAPI · WebSocket · React Flow · xterm.js</span></div>
+      <div class="proj"><b>Quiosque para eventos</b><span class="d">Atendente autônomo para eventos baseado em enxame de agentes.</span><span class="t">Swarm · Redis pub/sub · n8n</span></div>
+    </details>
+    <details class="group" style="--c:#0f766e">
+      <summary><i aria-hidden="true"></i><b>Automação financeira e de operação</b><span>6</span><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+      <div class="proj"><b>Contas a pagar a partir do ERP</b><span class="d">Leitura do borderô do ERP e lançamento automático em contas a pagar, em produção.</span><span class="t">Python · integração de ERP</span></div>
+      <div class="proj"><b>Conciliação de notas fiscais</b><span class="d">Cruzamento de notas fiscais entre recebimento e rentabilidade de contratos.</span><span class="t">Python · Monday.com API</span></div>
+      <div class="proj"><b>Auditoria de benefícios</b><span class="d">Extração diária de pedidos e conciliação automática com os quadros de gestão.</span><span class="t">Python · Monday.com API</span></div>
+      <div class="proj"><b>CNAB 240 e checklists</b><span class="d">Validação de arquivos bancários e checklists de habilitação em licitações.</span><span class="t">Python</span></div>
+      <div class="proj"><b>Assinatura eletrônica</b><span class="d">Decisão do nível de assinatura conforme a Lei 14.063/2020 e a ICP-Brasil.</span><span class="t">Python · LegalTech</span></div>
+      <div class="proj"><b>Workflows n8n</b><span class="d">Mais de 200 fluxos ativos documentados, com rota de erro e monitoramento.</span><span class="t">n8n · webhooks · Apps Script</span></div>
+    </details>
+    <details class="group" style="--c:#a25ddc">
+      <summary><i aria-hidden="true"></i><b>Pessoais e mobile</b><span>5</span><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+      <div class="proj"><b>StoreManager</b><span class="d">Gestão de estoque, vendas, clientes e financeiro para loja de roupas.</span><span class="t">React · TypeScript · Tailwind · Supabase</span></div>
+      <div class="proj"><b>Bar Caixa</b><span class="d">App mobile offline-first de caixa e estoque, com sangria e mapa de caixa compartilhável.</span><span class="t">React Native · Expo · SQLite</span></div>
+      <div class="proj"><b>BeatTeen</b><span class="d">App de música com playback em background, downloads offline criptografados e tradução de letras.</span><span class="t">Flutter · Riverpod · Isar · Supabase</span></div>
+      <div class="proj"><b>The AI List</b><span class="d">Lista de compras offline-first migrada de HTML para mobile.</span><span class="t">Flutter · BLoC · Clean Architecture</span></div>
+      <div class="proj"><b>Lab Linux mobile</b><span class="d">Ambiente desktop em tablet para estudo de administração de servidores.</span><span class="t">Termux · XFCE4 · Linux</span></div>
+    </details>
+  </div>
+</section>
+
+<section id="stack" aria-labelledby="stack-t">
+  <h2 id="stack-t">Stack</h2>
+  <div class="card table">
+    <div class="kv"><b>Linguagens</b><span>Python (principal) · TypeScript · JavaScript · SQL · Dart</span></div>
+    <div class="kv"><b>Backend</b><span>FastAPI · Django · REST · WebSocket · Celery · webhooks</span></div>
+    <div class="kv"><b>Frontend e mobile</b><span>React · Vite · Tailwind · Mantine · TanStack · Flutter · React Native / Expo</span></div>
+    <div class="kv"><b>IA e LLMs</b><span>Claude API · tool use · agentes · RAG · embeddings · Llama · Gemini · Whisper · MediaPipe</span></div>
+    <div class="kv"><b>Dados</b><span>PostgreSQL · MongoDB · SQLite · Redis · ChromaDB · Supabase</span></div>
+    <div class="kv"><b>Automação e infra</b><span>n8n · Monday.com API · Docker · nginx · Cloudflare · Linux · WireGuard</span></div>
+  </div>
+</section>
+
+<section id="lideranca" aria-labelledby="lid-t">
+  <h2 id="lid-t">Liderança e negócio</h2>
+  <div class="grid4">
+    <div class="card tile"><b>Arquitetura</b><span>Desenho técnico de produtos e soluções, da ideia à produção, com padrões escritos que o time segue</span></div>
+    <div class="card tile"><b>Pessoas</b><span>Liderança de squads, onboarding e trilha de formação de estagiários de desenvolvimento</span></div>
+    <div class="card tile"><b>Estratégia</b><span>Estratégia de automação e IA levada à diretoria, com custo, ganho e risco de cada frente</span></div>
+    <div class="card tile"><b>Negócio</b><span>Propostas comerciais de automação e agentes de IA, do levantamento do processo à entrega</span></div>
+  </div>
+</section>
+
+<section id="contato" aria-labelledby="cont-t">
+  <div><h2 id="cont-t">Contato</h2><p class="sub">Para conversar sobre projetos de automação, IA e produto</p></div>
+  <div class="card contact">
+    <dl>
+      <dt>E-mail</dt><dd><a href="mailto:karenvasconcelos27@gmail.com">karenvasconcelos27@gmail.com</a></dd>
+      <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/karen-ai-dev/" rel="noopener">linkedin.com/in/karen-ai-dev</a></dd>
+      <dt>GitHub</dt><dd><a href="https://github.com/KaVsDevs" rel="noopener">github.com/KaVsDevs</a></dd>
+    </dl>
+    <div class="actions">
+      <a class="btn primary" href="mailto:karenvasconcelos27@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>Enviar e-mail</a>
+      <a class="btn" href="https://wa.me/5592981254943" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer><span>Karen Vasconcelos · Portfólio</span><span>Manaus, AM · 2026</span></footer>
+
+</div>
+</main>
+</div>
+
+<script>
+// Marca no menu a seção que está na tela.
+(function () {
+  var links = [].slice.call(document.querySelectorAll('#menu a'));
+  var alvos = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  function marcar() {
+    var linha = window.innerHeight * 0.3, atual = 0;
+    alvos.forEach(function (el, i) { if (el && el.getBoundingClientRect().top <= linha) atual = i; });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) atual = links.length - 1;
+    links.forEach(function (a, i) {
+      if (i === atual) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
+  }
+  var pendente = false;
+  window.addEventListener('scroll', function () {
+    if (pendente) return; pendente = true;
+    requestAnimationFrame(function () { pendente = false; marcar(); });
+  }, { passive: true });
+  marcar();
+})();
+</script>
+</body>
+</html>
